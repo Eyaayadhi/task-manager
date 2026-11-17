@@ -1,5 +1,5 @@
 
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ChangeDetectorRef } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { TaskService, Task } from './services/task';
 
@@ -15,18 +15,24 @@ export class App implements OnInit {
   tasks: Task[] = [];
   newTask = '';
 
-  constructor(private taskService: TaskService) {}
+  constructor(
+  private taskService: TaskService,
+  private cdr: ChangeDetectorRef
+) {}
 
   ngOnInit(): void {
     this.loadTasks();
   }
 
   loadTasks(): void {
-    this.taskService.getTasks().subscribe({
-      next: (data) => this.tasks = data,
-      error: (err) => console.error('Error loading tasks:', err)
-    });
-  }
+  this.taskService.getTasks().subscribe({
+    next: (data) => {
+      this.tasks = data;
+      this.cdr.markForCheck();
+    },
+    error: (err) => console.error('Error loading tasks:', err)
+  });
+}
 
   addTask(): void {
     if (!this.newTask.trim()) return;
