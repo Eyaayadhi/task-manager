@@ -20,8 +20,10 @@ export class TaskService {
 
   // Get all tasks
   getTasks(): Observable<Task[]> {
-    return this.http.get<Task[]>(this.apiUrl);
-  }
+  return this.http.get<Task[]>(this.apiUrl, {
+    transferCache: false
+  });
+}
 
   // Add a task
   addTask(title: string): Observable<Task> {
