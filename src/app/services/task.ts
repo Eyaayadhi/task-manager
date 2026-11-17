@@ -14,7 +14,7 @@ export interface Task {
 })
 export class TaskService {
 
-  private apiUrl = 'http://localhost:3000/api/tasks';
+  private apiUrl = 'https://task-manager-api-ihmo.onrender.com/api/tasks';
 
   constructor(private http: HttpClient) {}
 
