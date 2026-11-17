@@ -1,0 +1,30 @@
+
+<div class="container">
+  <h1>My Task Manager</h1>
+  <p>Organize your daily tasks</p>
+
+  <div class="task-form">
+    <input
+      type="text"
+      placeholder="Enter a new task..."
+      [(ngModel)]="newTask"
+    />
+    <button (click)="addTask()">Add Task</button>
+  </div>
+
+  <h2>My Tasks</h2>
+
+  @for (task of tasks; track task.id) {
+    <div class="task">
+      <span [style.text-decoration]="task.completed ? 'line-through' : 'none'">
+        {{ task.title }}
+      </span>
+
+      <button (click)="toggleTask(task)">
+        {{ task.completed ? 'Undo' : 'Complete' }}
+      </button>
+
+      <button (click)="deleteTask(task.id)">Delete</button>
+    </div>
+  }
+</div>

@@ -1,0 +1,47 @@
+
+.container {
+  max-width: 600px;
+  margin: 70px auto;
+  padding: 30px;
+  font-family: Arial, sans-serif;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px #00000015;
+}
+
+h1 {
+  color: #344da1;
+}
+
+p {
+  color: #777;
+}
+
+.task-form {
+  display: flex;
+  gap: 10px;
+  margin: 25px 0;
+}
+
+input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: #344da1;
+  color: white;
+  cursor: pointer;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+}
